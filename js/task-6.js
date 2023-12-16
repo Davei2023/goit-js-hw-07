@@ -3,21 +3,24 @@ const btnCreate = document.querySelector("[data-create]");
 const btnDestroy = document.querySelector("[data-destroy]");
 const boxes = document.querySelector("#boxes");
 function createBoxes(amount) {
-for (let i = 0; i < amount; i++) {
-const boxSize = 30 + i * 10;
-boxes.insertAdjacentHTML("afterbegin", `<div <div style="background-color: ${getRandomHexColor()}; width: ${boxSize}px; height: ${boxSize}px;"></div>`);
-}
+    for (let i = 0; i < amount; i++) {
+        const boxSize = 30 + i * 10;
+        boxes.insertAdjacentHTML("afterbegin", `<div style="background-color: ${getRandomHexColor()}; width: ${boxSize}px; height: ${boxSize}px;"></div>`);
+    }
 }
 function destroyBoxes() {
-boxes.innerHTML = "";
+    boxes.innerHTML = "";
 }
 btnCreate.addEventListener("click", (event) => {
-const inputNum = parseInt(input.value);
-if (inputNum <= 100 && inputNum >= 0) {
-    createBoxes(inputNum);
-} else {
-    alert("Не вірно введене число")
+    const inputNum = parseInt(input.value);
+    if (inputNum <= 100 && inputNum >= 0) {
+        createBoxes(inputNum);
+    } else {
+        alert("Не вірно введене число");
+    }
+    input.value = "";
+});
+btnDestroy.addEventListener("click", destroyBoxes);
+function getRandomHexColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
 }
-input.value = "";
-})
-btnDestroy.addEventListener("click", destroyBoxes)

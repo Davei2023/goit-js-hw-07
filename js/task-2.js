@@ -24,19 +24,14 @@ const images = [
         alt: 'Zebras on Zebra',
     },
 ];
-
 const galleryList = document.querySelector(".gallery");
-
 images.forEach((image) => {
     const listItem = document.createElement('li');
     const imgElement = document.createElement('img');
-
     imgElement.src = image.url;
     imgElement.alt = image.alt;
     imgElement.style.width = '100%';
-
     listItem.appendChild(imgElement);
     galleryList.appendChild(listItem);
 });
-
 galleryList.style.display = 'flex';
